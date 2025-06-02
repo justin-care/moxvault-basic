@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@plugin "daisyui"{
+    themes: coffee;
+}
+
+@theme {
+    --breakpoint-xsm: 330px;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+  }
+.btn:active {
+    transform: scale(0.95);
+  }
