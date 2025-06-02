@@ -36,8 +36,8 @@ function App() {
         <div className="w-full bg-base-200 h-[100dvh] flex flex-col overflow-hidden">
             <Header />
             <div className="flex-grow">
-                <Routes>
-                    <Route path="/" element={<StartScreen />} />
+                <Routes >
+                    <Route path="/"  element={<StartScreen />} />
                     <Route path="/game" element={<GameScreen />} />
                     <Route path="/create" element={<CreateGameScreen />} />
                 </Routes>
