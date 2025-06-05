@@ -4,6 +4,7 @@ import { dispatchGameAction, gameActions } from "../slices/historySlice";
 import * as uiActions  from "../slices/uiSlice";
 import { useState, useEffect, use } from "react";
 import useWakeLock from "../hooks/useWakeLock";
+import { CiCircleMore } from "react-icons/ci";
 
 import {motion} from "framer-motion";
 
@@ -58,13 +59,15 @@ const GameScreen = () => {
                             minHeight: `${95 / players.length}%`,
                           }}>
                             <button className="btn btn-lg btn-warning xsm:w-16 md:w-20 h-full text-3xl"  onClick={() => dispatch(dispatchGameAction(gameActions.decrementLifeTotal({id: player.id})))}>-</button>
-                            <div className="flex flex-col items-center justify-evenly w-full xsm:gap-0 md:gap-4">
-                                <h2 className="text-lg md:text-2xl font-bold text-base-content">{player.name}</h2>
+                            <div className="flex flex-col items-center justify-evenly w-full xsm:gap-4 md:gap-8">
+                                <div className="flex flex-row items-center gap-1">
+                                    <h2 className="text-2xl md:text-4xl font-bold text-base-content">{player.name}</h2>
+                                    <button className="btn btn-md btn-ghost text-3xl" onClick={() => openDrawer(player.id)}><CiCircleMore /></button>
+                                </div>
                                 <motion.h3 initial={{ scale: 1 }} 
                                 animate={{ scale: 1.2 }} 
                                 transition={{ duration: 0.2 }} 
                                 key={player.lifeTotal} className="text-4xl md:text-5xl xsm:text-4xl text-base-content">{player.lifeTotal}</motion.h3>
-                                <button className="btn btn-md btn-error xsm:w-3/4 md:w-auto md:mt-2 mb-2" onClick={() => openDrawer(player.id)}>More</button>
                             </div>
                             <button className="btn btn-lg btn-warning xsm:w-16 md:w-20 h-full text-3xl" onClick={() => dispatch(dispatchGameAction(gameActions.incrementLifeTotal({id: player.id})))}>+</button>
                         </div>
