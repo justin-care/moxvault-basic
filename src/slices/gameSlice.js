@@ -24,7 +24,6 @@ const gameSlice = createSlice({
     reducers: {
         incrementCommanderDamage: (state, action) => {
             const {attackerId, defenderId} = action.payload;
-            console.log(action.payload);
             const defender = state.players.find(player => player.id === defenderId);
             if (defender) {
                 if(!defender.commanderDamage[attackerId]) {
@@ -84,7 +83,6 @@ const gameSlice = createSlice({
         },
         incrementLifeTotal: (state, action) => {
             const player = state.players.find(player => player.id === action.payload.id);
-            console.log(player);
             if (player) {
                 player.lifeTotal += 1;
                 window.navigator.vibrate(100);
@@ -93,9 +91,10 @@ const gameSlice = createSlice({
         decrementLifeTotal: (state, action) => {
             const player = state.players.find(player => player.id === action.payload.id);
             if (player) {
-                if(player.lifeTotal > 0) {
+                if(player.lifeTotal > 1) {
                     player.lifeTotal -= 1;
                 } else {
+                    player.lifeTotal -= 1;
                     //TODO: Trigger player death
                 }
                 window.navigator.vibrate(75);

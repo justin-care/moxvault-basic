@@ -62,7 +62,6 @@ const historySlice = createSlice({
             window.navigator.vibrate(50);
         },
         dispatchGameAction: (state, action) => {
-            console.log(action.payload.type);
             if(action.payload.type === "game/setSettingsMenuState" ||action.payload.type === "game/setConfig" || action.payload.type === "game/setGameId" || action.payload.type === "game/setGameSettings") {
                 state.present = gameReducer(current(state.present), action.payload);
                 return;

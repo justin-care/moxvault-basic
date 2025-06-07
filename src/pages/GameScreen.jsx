@@ -23,11 +23,11 @@ const GameScreen = () => {
 
     const past = useSelector(state => state.game.past);
     const future = useSelector(state => state.game.future);
-    useEffect(() => {
+/*     useEffect(() => {
         console.log('Players:', players);
         console.log('Past length:', past.length);
         console.log('Future length:', future.length);
-    }, [players, past, future]);
+    }, [players, past, future]); */
 
 
     useEffect(() => {
@@ -45,6 +45,10 @@ const GameScreen = () => {
         setActivePlayer(null);
         setDrawerOpen(false);
         window.navigator.vibrate(50);
+    }
+
+    const handleDecrementLifeTotal = (id) => {
+        //
     }
 
     return (

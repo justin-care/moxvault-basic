@@ -15,6 +15,7 @@ import config from "./config/config";
 
 function App() {
     const settingsMenuOpen = useSelector(state => state.ui.settingsMenuOpen);
+    const toasts = useSelector(state => state.ui.toasts);
     const redoActive = useSelector(state => state.game.present.redoActive);
     const undoActive = useSelector(state => state.game.present.undoActive);
     const resetActive = useSelector(state => state.game.present.resetActive);
@@ -41,6 +42,9 @@ function App() {
                     <Route path="/game" element={<GameScreen />} />
                     <Route path="/create" element={<CreateGameScreen />} />
                 </Routes>
+            </div>
+            <div className="toast toast-start">
+                {toasts.map((toast, index) => <div key={index} className={`alert ${toast.type} font-bold text-xl shadow-md`}>{toast.message}</div>)}
             </div>
             {settingsMenuOpen && 
             <div className={`w-72 rounded-xl ${bg} ${text} shadow-lg absolute top-17 right-2 justify-between items-center gap-2 flex flex-col`}>
