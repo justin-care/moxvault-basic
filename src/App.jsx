@@ -2,6 +2,7 @@ import {Routes, Route, useLocation} from 'react-router-dom'
 import StartScreen from './pages/StartScreen'
 import GameScreen from './pages/GameScreen'
 import CreateGameScreen from './pages/CreateGameScreen'
+import Cards from './pages/Cards'
 import Header from './components/Header'
 import { useSelector, useDispatch } from 'react-redux'
 import useThemeColors from './hooks/useThemeColors'
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/"  element={<StartScreen />} />
                     <Route path="/game" element={<GameScreen />} />
                     <Route path="/create" element={<CreateGameScreen />} />
+                    <Route path="/cards" element={<Cards />} />
                 </Routes>
             </div>
             <div className="toast toast-start">
